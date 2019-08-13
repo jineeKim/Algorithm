@@ -1,19 +1,21 @@
 #include <stdio.h>
+#include <iostream>
 
 #define QUEUESIZE 1000000
 
 int q[2][QUEUESIZE];
-long head, tail;
+int head, tail;
 
-int arr[1010][1010];
-int knight[1010][1010];
-int horse[1010][1010];
+int arr[1002][1002];
+int knight[1002][1002];
+int horse[1002][1002];
 
 void push(int x, int y) {
 	q[0][tail] = x;
 	q[1][tail] = y;
 
 	tail++;
+	//tail %= QUEUESIZE;
 }
 
 void pop(int* x, int* y) {
@@ -21,10 +23,10 @@ void pop(int* x, int* y) {
 	*y = q[1][head];
 
 	head++;
+	//head += QUEUESIZE;
 }
-
 int main() {
-	long n = 0, k = 0;
+	int n = 0, k = 0;
 	int x = 0, y = 0;
 	int cx = 0, cy = 0;
 
@@ -42,7 +44,6 @@ int main() {
 	}
 
 	scanf("%d %d", &x, &y);
-	
 	cx = x;
 	cy = y;
 
@@ -101,8 +102,6 @@ int main() {
 	while (head < tail) {
 		pop(&x, &y);
 
-		/*if (x+1)
-			break;*/
 		if (x + 1 <= n && y + 2 <= n && arr[x + 1][y + 2] != 'X' && arr[x][y + 1] != 'X' && horse[x + 1][y + 2] == 0) {
 			horse[x + 1][y + 2] = horse[x][y] + 1;
 			push(x + 1, y + 2);
@@ -140,14 +139,14 @@ int main() {
 	}
 
 	int count = 0;
-	
+
 
 	for (int i = 1; i <= n; i++) {
 		for (int j = 1; j <= n; j++) {
 			if (horse[i][j] == 0 && knight[i][j] != 0)
 				count++;
 			else if (knight[i][j] < horse[i][j])
-				count++; 
+				count++;
 		}
 	}
 
@@ -156,4 +155,3 @@ int main() {
 
 	return 0;
 }
-
