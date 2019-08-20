@@ -7,7 +7,7 @@ int solution(int N) {
 
 	for (i = 0; N != 0; i++) {
 		if (N % 2) {
-			if (max <= i - s) {
+			if (max <= i - s && f > 0) {
 				max = i - s;
 			}
 			s = i;
