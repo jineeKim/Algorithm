@@ -4,7 +4,7 @@
 using namespace std;
 
 vector<int> a[2001];
-vector<int> check(2001);
+vector<int> check(2001, 0);
 
 void dfs(int x, int c) {
 	check[x] = c;
