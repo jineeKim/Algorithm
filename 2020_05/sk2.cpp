@@ -1,3 +1,7 @@
+//O(n^2)
+//n^2-> n으로 만들려면 2차원 배열 풀어서 생각해 n*m을 for문 하나로 돌리면 됨
+//정렬 순서: cnt > total > company
+
 #include <stdio.h>
 #include <vector>
 #include <algorithm>
@@ -36,4 +40,6 @@ vector <string> solution(vector<string> company, vector< vector<int>> scores){
     sort(v.begin(), v.end(), cmp);
 
     for(int i=0; i<v.size(); i++) answer.push_back(v[i].com);
+
+    return answer;
 }

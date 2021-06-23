@@ -1,9 +1,10 @@
+//O(N^2) N = 100,000
+//중복되는 기능 함수로 뺌
+//더 나은 알고리즘? -> 
+
 #include <stdio.h>
 #include <vector>
-
 using namespace std;
-
-//n = 100,000
 
 int getWantedNum(vector<int> card, vector<int> wanted){
     int cnt=0;
@@ -12,7 +13,6 @@ int getWantedNum(vector<int> card, vector<int> wanted){
     }
     return cnt;
 }
-
 
 int solution(vector<int> card, vector<int> wanted){
     int answer = card.size();

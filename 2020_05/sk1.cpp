@@ -1,3 +1,8 @@
+//O(N^2) N = 100,000
+//코드 복귀가 완벽하게 생각 나지 않지만 while문 탈출 조건을 넣어야 함
+//지금 이 상테는 예외처리 매우 별로 
+
+
 #include <stack>
 #include <vector>
 
@@ -19,7 +24,8 @@ vector<int> solution(vector<int> bank){
             s.pop();
 
             int value = tmp-bank[i];
-            if(value > 0){
+            
+            if(value < 0){
                 bank[i] -= tmp;
             }else{
                 s.push(value);

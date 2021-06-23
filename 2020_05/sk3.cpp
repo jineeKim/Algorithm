@@ -1,3 +1,6 @@
+//O(N)
+// swap역할을 하는 코드이기에 함수로 따로 빼서 작성함 -> 코드 가독성과 이해도를 향상 시킬 수 있음
+
 #include <stdio.h>
 #include <vector>
 
